@@ -1,0 +1,24 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+
+  config.vm.box = "hashicorp/bionic64"
+
+  config.vm.hostname = "example3"
+
+  config.vm.network "private_network", ip: "10.0.0.10"
+
+  config.vm.synced_folder "~/html", "/var/www/html"
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.cpus = "2"
+    vb.memory = "2048"
+  end
+
+  # this is need ansible installed on your vagrant host
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "provision/bootstrap.yml"
+ end
+
+end

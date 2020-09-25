@@ -1,0 +1,23 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+
+  config.vm.box = "hashicorp/bionic64"
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.cpus = "2"
+    vb.memory = "2048"
+  end
+
+  config.vm.define "vm1-example4" do |vm1|
+    vm1.vm.hostname = "vm1-example4"
+    vm1.vm.network "private_network", ip: "10.0.0.10"
+  end
+
+  config.vm.define "vm2-example4" do |vm2|
+    vm2.vm.hostname = "vm2-example4"
+    vm2.vm.network "private_network", ip: "10.0.0.20"
+  end
+  
+end

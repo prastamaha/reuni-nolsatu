@@ -1,0 +1,21 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+
+  config.vm.box = "hashicorp/bionic64"
+
+  config.vm.hostname = "example2"
+
+  config.vm.network "forwarded_port", guest: "80", host: "8080"
+
+  config.vm.synced_folder "~/html", "/var/www/html"
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.cpus = "2"
+    vb.memory = "2048"
+  end
+
+  config.vm.provision "shell", path: "nginx.sh"
+
+end
