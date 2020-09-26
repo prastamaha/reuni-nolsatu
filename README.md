@@ -5,12 +5,12 @@
 2. virtualbox installed
 3. clone repository
 ```
-git clone
+git clone https://github.com/prastamaha/reuni-nolsatu.git
+cd reuni-nolsatu
 ```
 4. download box
 ```
 vagrant box add hashicorp/bionic64 https://app.vagrantup.com/hashicorp/boxes/bionic64/versions/1.0.282/providers/virtualbox.box 
-cd reuni-nolsatu
 ```
 5. run example
 ```
